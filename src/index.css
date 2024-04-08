@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Add this in your global stylesheet (e.g., styles.css) */
+.hide-scrollbar {
+  /* For Chrome, Safari, and Opera */
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
+
+@layer base {
+  /* Existing styles for html and body */
+
+  .genre-dropdown::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  .genre-dropdown::-webkit-scrollbar-track {
+    background: rgba(57, 57, 57, 0.16);
+  }
+
+  .genre-dropdown::-webkit-scrollbar-thumb {
+    background: rgba(78, 21, 200, 0.6);
+    border-radius: 1vh;
+  }
+
+  .genre-dropdown::-webkit-scrollbar-thumb:hover {
+    background: rgba(94, 127, 176, 0.518);
+  }
+}
