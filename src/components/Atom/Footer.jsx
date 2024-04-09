@@ -8,8 +8,8 @@ const Footer = ({ type }) => {
           <div className="max-w-6xl mx-auto p-primarysm md:p-primarymd">
             <div className="md:flex md:justify-between ">
               <div className="mb-6 md:mb-0 flex flex-col justify-center items-center md:items-start">
-                <h2 className="text-4xl  text-white flex items-center  font-Anta font-semibold">
-                  Watch<span className="text-indigo-950/90 py-2">Site</span>
+                <h2 className="text-4xl  text-white flex items-center py-2  font-Anta font-semibold">
+                  WatchSite
                 </h2>
                 <p className="text-lg">Created By DzakyRazi</p>
               </div>
@@ -64,8 +64,8 @@ const Footer = ({ type }) => {
         <div className="max-w-6xl mx-auto px-4 py-7 md:py-10">
           <div className="md:flex md:justify-between">
             <div className="mb-6 md:mb-0">
-              <h2 className="text-3xl  text-white flex items-center font-Anta font-semibold">
-                Watch<span className="text-indigo-950/90 py-2">Site</span>
+              <h2 className="text-3xl py-2  text-white flex items-center font-Anta font-semibold">
+                WatchSite
               </h2>
               <p className="text-xl">Created By DzakyRazi</p>
             </div>

@@ -88,6 +88,7 @@ export const Sidebar = () => {
   return (
     <>
       <aside
+        aria-label="sidebar"
         role="navigation"
         className={`bg-slate-100/70 border-r shadow-lg overflow-y-auto genre-dropdown shadow-slate-950/80 border-slate-600/80 bg-gradient-to-bl from-indigo-600 to-indigo-700 fixed md:-left-1 h-screen  z-10 justify-between transition-all duration-500 flex flex-col ease-in-out overflow-hidden  ${
           OpenSidebar ? " w-72" : " w-16 md:w-[90px]"
@@ -109,8 +110,9 @@ export const Sidebar = () => {
                     <img
                       src={Logo}
                       alt="Image Logo"
-                      className="size-12 mt-2 hover:rounded-md hover:bg-indigo-800/90 "
+                      className=" size-fit mt-2 hover:rounded-md hover:bg-indigo-800/90 "
                       onClick={() => SetOpenSidebar(!OpenSidebar)}
+                      loading="lazy"
                     />
                   </button>
                 </div>
@@ -173,6 +175,7 @@ export const Sidebar = () => {
                     >
                       {GenreItems.map((genre) => (
                         <a
+                          aria-label="Genre-Dropdown"
                           key={genre.id}
                           onClick={() =>
                             navigate("/genre", {
@@ -219,7 +222,7 @@ export const Sidebar = () => {
                     >
                       {years.map((year) => (
                         <a
-                          aria-label="Toggle Sidebar"
+                          aria-label="Toggle-sidebar"
                           key={year}
                           onClick={() => navigate(`/byyear/${year}`)}
                           className="text-slate-300 hover:text-indigo-500 p-2 hover:bg-slate-200/80 rounded-md"
@@ -238,6 +241,7 @@ export const Sidebar = () => {
                   className="flex text-base justify-center items-center md:px-5 gap-y-2 w-full"
                 >
                   <a
+                    aria-label="sidebar-item"
                     href={data.link}
                     className="flex  group gap-x-6 p-3 items-center transition-all duration-150 ease-out text-slate-300 hover:text-indigo-500 justify-start w-3/4 md:w-full rounded-md hover:font-semibold font-medium hover:bg-slate-200/80"
                   >
