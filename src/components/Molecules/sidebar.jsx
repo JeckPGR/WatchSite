@@ -96,18 +96,16 @@ export const Sidebar = () => {
         {/* Top */}
         <div className="flex flex-col gap-y-2">
           <div className="flex items-center justify-around">
-            <header className="text-3xl   text-white flex items-center font-Anta font-semibold">
+            <header className="text-3xl py-2   text-indigo-100 flex items-center font-Anta font-semibold">
               {OpenSidebar ? (
-                <>
-                  Watch<span className="text-indigo-950/90 py-2">Site</span>
-                </>
+                <>WatchSite</>
               ) : (
                 <div
                   className={`transition-transform duration-300 ${
                     OpenSidebar && "!rotate-180"
                   }`}
                 >
-                  <button aria-label="logo-button" className="">
+                  <button aria-label="logo-button">
                     <img
                       src={Logo}
                       alt="Image Logo"
@@ -135,7 +133,7 @@ export const Sidebar = () => {
                   className={`${OpenSidebar ? "px-9" : "px-2"} md:px-5`}
                 >
                   <button
-                    key={data.id}
+                    aria-label="Toggle-findmovie"
                     onClick={openSearchModal}
                     className="flex items-center  justify-between gap-x-6 p-3 transition-all duration-150 ease-out text-slate-300 hover:text-indigo-500 w-full rounded-md hover:font-semibold group font-medium hover:bg-slate-200/80"
                   >
@@ -154,6 +152,7 @@ export const Sidebar = () => {
                   className={`${OpenSidebar ? "px-9" : "px-2"} md:px-5`}
                 >
                   <button
+                    aria-label="Toggle-GenreDropdown"
                     onClick={toggleGenreDropdown}
                     className="flex items-center justify-between gap-x-6 p-3 transition-all duration-150 ease-out text-slate-300 hover:text-indigo-500 w-full rounded-md hover:font-semibold group font-medium hover:bg-slate-200/80"
                   >
@@ -199,6 +198,7 @@ export const Sidebar = () => {
                   className={`${OpenSidebar ? "px-9" : "px-2"} md:px-5`}
                 >
                   <button
+                    aria-label="Toggle-YearDropdown"
                     onClick={toggleYearDropdown}
                     className="flex items-center justify-between gap-x-6 p-3 transition-all duration-150 ease-out text-slate-300 hover:text-indigo-500 w-full rounded-md hover:font-semibold group font-medium hover:bg-slate-200/80"
                   >
@@ -219,6 +219,7 @@ export const Sidebar = () => {
                     >
                       {years.map((year) => (
                         <a
+                          aria-label="Toggle Sidebar"
                           key={year}
                           onClick={() => navigate(`/byyear/${year}`)}
                           className="text-slate-300 hover:text-indigo-500 p-2 hover:bg-slate-200/80 rounded-md"
