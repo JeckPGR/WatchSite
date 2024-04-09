@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
+import { FaStar } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const RatingPage = () => {
   const [movies, setMovies] = useState([]);
-  const [sortOrder, setSortOrder] = useState("asc");
+  const [sortOrder, setSortOrder] = useState("desc");
   const API_KEY = "8f1c21a8fadd3fc614270aff81fd3a08";
   const API_URL = "https://api.themoviedb.org/3";
 
@@ -36,24 +38,29 @@ const RatingPage = () => {
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {movies.map((movie) => (
-          <div
+          <Link
+            to={`/movie/${movie.id}`}
             key={movie.id}
-            className="bg-gray-700 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 ease-in-out transform hover:-translate-y-1"
+            className="rounded-lg  relative overflow-hidden shadow-md  hover:bg-gray-700 transition duration-200"
           >
+            <p className="absolute flex items-center gap-x-1 bg-slate-400/50    w-12 py-1 px-2 z-20 ">
+              <FaStar color="gold" size={20} />
+              <span className=" text-white font-bold">
+                {Math.round(movie.vote_average)}
+              </span>
+            </p>
             <img
-              className="w-full h-60 object-cover"
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
               alt={movie.title}
+              className="w-full h-auto"
+              loading="lazy"
             />
-            <div className="px-6 py-4">
-              <h3 className="font-semibold text-lg mb-2 text-center truncate">
+            <div className="p-4">
+              <h2 className="text-lg text-center font-semibold truncate">
                 {movie.title}
-              </h3>
-              <p className="text-center">
-                Rating: <span className="font-bold">{movie.vote_average}</span>
-              </p>
+              </h2>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

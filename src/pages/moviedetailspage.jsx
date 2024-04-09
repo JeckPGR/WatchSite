@@ -85,7 +85,7 @@ const MovieDetailsPage = () => {
       >
         <Link
           to="/"
-          className="fixed top-3 left-5 p-2 bg-slate-800/70 hover:bg-slate-700 active:bg-slate-600 flex justify-center rounded-full "
+          className="fixed top-3 left-5 p-2 bg-slate-600 hover:bg-slate-700 active:bg-slate-600 flex justify-center rounded-full  z-40"
         >
           <IoIosArrowBack color="white" size={20} />
         </Link>
@@ -173,31 +173,35 @@ const MovieDetailsPage = () => {
             </div>
           </div>
           <div className="px-4 mt-8">
-            <h2 className="text-2xl font-bold mb-4">If you like the movie..</h2>
+            <h2 className="text-2xl font-bold mb-4">Related Movies</h2>
             <div className="flex overflow-x-auto gap-4  py-4 hide-scrollbar">
               {similiarMovies.map((movie) => (
-                <div
+                <button
+                  role="navigation"
+                  aria-label="navigate-similiar-movies"
                   key={movie.id}
-                  className="min-w-max cursor-pointer"
+                  className="min-w-max "
                   onClick={() => handleAnotherMovieClick(movie.id)}
                 >
                   <img
                     src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
                     alt={movie.title}
-                    className="rounded-lg shadow-lg"
-                    loading="lazy"
+                    className="rounded-lg shadow-lg hover:scale-105 duration-200"
+                    loading="lazy "
                   />
-                </div>
+                </button>
               ))}
             </div>
           </div>
           <div className="px-4 mt-8">
-            <h2 className="text-2xl font-bold mb-4">Another Popular Movies</h2>
+            <h2 className="text-2xl font-bold mb-4"> Popular Movies</h2>
             <div className="flex overflow-x-auto gap-4  py-4  hide-scrollbar">
               {anotherMovies.map((movie) => (
-                <div
+                <button
+                  role="navigation"
+                  aria-label="navigate-popular-movies"
                   key={movie.id}
-                  className="min-w-max cursor-pointer"
+                  className="min-w-max  hover:scale-105 duration-200"
                   onClick={() => handleAnotherMovieClick(movie.id)}
                 >
                   <img
@@ -206,7 +210,7 @@ const MovieDetailsPage = () => {
                     className="rounded-lg shadow-lg"
                     loading="lazy"
                   />
-                </div>
+                </button>
               ))}
             </div>
           </div>

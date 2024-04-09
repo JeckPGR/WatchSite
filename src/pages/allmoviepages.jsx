@@ -49,7 +49,8 @@ const AllMoviesPage = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
         <div className="grid grid-cols-2 sm:grid-cols-3  lg:grid-cols-5 gap-4">
           {movies.map((movie) => (
-            <div
+            <Link
+              to={`/movie/${movie.id}`}
               key={movie.id}
               className=" hover:shadow-slate-50/10 relative rounded-lg overflow-hidden shadow-md transform hover:-translate-y-1 transition duration-200 ease-in-out"
             >
@@ -59,25 +60,24 @@ const AllMoviesPage = () => {
                   {Math.round(movie.vote_average)}
                 </span>
               </p>
-              <Link to={`/movie/${movie.id}`}>
-                <img
-                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                  alt={movie.title}
-                  className={`w-full h-96 object-cover scale duration-500  ${
-                    imageLoaded
-                      ? " "
-                      : "filter blur-md  origin-top-left scale-75 "
-                  }`}
-                  loading="lazy"
-                  onLoad={() => setImageLoaded(true)}
-                />
-                <div className="p-4">
-                  <h2 className="text-lg font-semibold truncate text-center">
-                    {movie.title}
-                  </h2>
-                </div>
-              </Link>
-            </div>
+
+              <img
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                alt={movie.title}
+                className={`w-full h-96 object-cover scale duration-500  ${
+                  imageLoaded
+                    ? " "
+                    : "filter blur-md  origin-top-left scale-75 "
+                }`}
+                loading="lazy"
+                onLoad={() => setImageLoaded(true)}
+              />
+              <div className="p-4">
+                <h2 className="text-lg font-semibold truncate text-center">
+                  {movie.title}
+                </h2>
+              </div>
+            </Link>
           ))}
         </div>
       </div>

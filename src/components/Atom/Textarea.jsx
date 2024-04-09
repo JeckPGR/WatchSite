@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 const TextArea = ({ value, onChange, placeholder, name = "complaint" }) => {
   return (
     <textarea
-      className="shadow appearance-none border rounded placeholder:text-sm placeholder:capitalize w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      className="bg-gray-50 focus:bg-white border border-gray-300 text-gray-700 sm:text-sm rounded-lg focus:ring-blue-500 active:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
       value={value}
       onChange={onChange}
       placeholder={placeholder}

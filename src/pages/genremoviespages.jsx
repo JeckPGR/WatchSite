@@ -31,7 +31,7 @@ const GenreMoviesPage = () => {
   return (
     <div className="bg-gray-900 min-h-screen text-gray-100">
       {/* Top Navigation */}
-      <div className=" lg:fixed relative top-5 left-5  w-3 flex items-center gap-x-2 lg:top-1/2 lg:left-3">
+      <div className="xl:fixed relative top-5   w-3 flex items-center gap-x-2 xl:top-1/2 left-3 md:left-5 lg:left-7 xl:left-1">
         <Link
           to="/"
           className="text-blue-400 flex items-center gap-x-1 hover:text-blue-500 transition duration-150 ease-in-out text-lg font-semibold"
@@ -52,6 +52,8 @@ const GenreMoviesPage = () => {
         <div className="grid grid-cols-2 sm:grid-cols-3  lg:grid-cols-5 gap-4">
           {movies.map((movie) => (
             <div
+              role="navigation"
+              aria-label="Movie Links"
               key={movie.id}
               className=" hover:shadow-slate-50/10 relative rounded-lg overflow-hidden shadow-md transform hover:-translate-y-1 transition duration-200 ease-in-out"
             >

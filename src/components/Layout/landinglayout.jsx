@@ -15,7 +15,7 @@ export const Landinglayout = () => {
         <LandingCard type="popular" title="Trending On WatchSite" />
         <LandingCard type="top_rated" title="Old School" />
       </div>
-      <Footer />
+      <Footer type="home" />
     </>
   );
 };

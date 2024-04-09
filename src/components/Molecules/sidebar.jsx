@@ -28,7 +28,6 @@ const sidebardata = [
     id: 2,
     title: "Find Movie",
     icon: <IoSearch size={25} />,
-    link: "#",
     dropdown: true,
   },
   {
@@ -69,19 +68,28 @@ const bottomsidebar = [
   },
 ];
 
+const currentYear = new Date().getFullYear();
+const startYear = 2001; // Adjust as needed
+const years = Array.from(
+  { length: currentYear - startYear + 1 },
+  (_, index) => currentYear - index
+);
+
 export const Sidebar = () => {
   const navigate = useNavigate();
   const [OpenSidebar, SetOpenSidebar] = useState(false);
   const [showGenreDropdown, setShowGenreDropdown] = useState(false);
+  const [showYearDropdown, setShowYearDropdown] = useState(false);
   const [showSearchModal, setShowSearchModal] = useState(false);
   const openSearchModal = () => setShowSearchModal(true);
   const closeSearchModal = () => setShowSearchModal(false);
   const toggleGenreDropdown = () => setShowGenreDropdown((prev) => !prev);
+  const toggleYearDropdown = () => setShowYearDropdown(!showYearDropdown);
   return (
     <>
       <aside
         role="navigation"
-        className={`bg-slate-100/70 border-r shadow-lg shadow-slate-950/80 border-slate-600/80 bg-gradient-to-bl from-indigo-600 to-indigo-700 fixed md:-left-1 h-screen  z-10 justify-between transition-all duration-500 flex flex-col ease-in-out overflow-hidden  ${
+        className={`bg-slate-100/70 border-r shadow-lg overflow-y-auto genre-dropdown shadow-slate-950/80 border-slate-600/80 bg-gradient-to-bl from-indigo-600 to-indigo-700 fixed md:-left-1 h-screen  z-10 justify-between transition-all duration-500 flex flex-col ease-in-out overflow-hidden  ${
           OpenSidebar ? " w-72" : " w-16 md:w-[90px]"
         }`}
       >
@@ -158,7 +166,7 @@ export const Sidebar = () => {
 
                   {showGenreDropdown && OpenSidebar && (
                     <div
-                      className={`flex flex-col pl-4 genre-dropdown max-h-96 ${
+                      className={`flex flex-col pl-4 pt-2 genre-dropdown max-h-96 ${
                         showGenreDropdown && OpenSidebar
                           ? "overflow-y-scroll"
                           : ""
@@ -184,6 +192,44 @@ export const Sidebar = () => {
                   )}
                 </div>
               );
+            } else if (data.title === "Year") {
+              return (
+                <div
+                  key={data.id}
+                  className={`${OpenSidebar ? "px-9" : "px-2"} md:px-5`}
+                >
+                  <button
+                    onClick={toggleYearDropdown}
+                    className="flex items-center justify-between gap-x-6 p-3 transition-all duration-150 ease-out text-slate-300 hover:text-indigo-500 w-full rounded-md hover:font-semibold group font-medium hover:bg-slate-200/80"
+                  >
+                    <div className="flex gap-x-6">
+                      {data.icon}
+                      {OpenSidebar && data.title}
+                    </div>
+                    {OpenSidebar && <CiMenuKebab size={25} color="white" />}
+                  </button>
+
+                  {showYearDropdown && OpenSidebar && (
+                    <div
+                      className={`flex flex-col pl-4 pt-2 genre-dropdown max-h-96 ${
+                        showYearDropdown && OpenSidebar
+                          ? "overflow-y-scroll"
+                          : ""
+                      }`}
+                    >
+                      {years.map((year) => (
+                        <a
+                          key={year}
+                          onClick={() => navigate(`/byyear/${year}`)}
+                          className="text-slate-300 hover:text-indigo-500 p-2 hover:bg-slate-200/80 rounded-md"
+                        >
+                          {year}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
             } else {
               return (
                 <div
@@ -203,7 +249,8 @@ export const Sidebar = () => {
           })}
         </div>
         {/* Bottom */}
-        <div className="flex flex-col gap-y-2 items-center py-3">
+        <div className="flex flex-col gap-y-2 items-center py-3 ">
+          <div className="border-t-2 border-indigo-700 w-[95%] rounded-full"></div>
           {bottomsidebar.map((data) => (
             <div
               key={data.id}

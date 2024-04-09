@@ -38,7 +38,7 @@ const SearchedMoviesPage = () => {
 
   return (
     <div className="bg-gray-900 min-h-screen text-gray-100 ">
-      <div className=" lg:fixed relative top-5   w-3 flex items-center gap-x-2 lg:top-1/2 left-3">
+      <div className=" xl:fixed relative top-5   w-3 flex items-center gap-x-2 xl:top-1/2 left-3 xl:left-1">
         <Link
           to="/"
           className="text-blue-400 flex items-center gap-x-1 hover:text-blue-500 transition duration-150 ease-in-out text-lg font-semibold"
@@ -51,9 +51,10 @@ const SearchedMoviesPage = () => {
           Search Results for: {state?.query}
         </h2>
         {movies.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <button className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {movies.map((movie) => (
-              <div
+              <Link
+                to={`/movie/${movie.id}`}
                 key={movie.id}
                 className=" rounded-lg hover:shadow-slate-50/10 hover:-translate-y-2 overflow-hidden shadow-md hover:shadow-lg transition-all duration-300"
               >
@@ -62,17 +63,15 @@ const SearchedMoviesPage = () => {
                   src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                   alt={movie.title}
                 />
-                <div className="p-4">
+                <div className="p-4 text-white">
                   <h3 className="font-bold text-lg mb-2 truncate">
                     {movie.title}
                   </h3>
-                  <p className="text-gray-600 text-sm truncate">
-                    {movie.overview}
-                  </p>
+                  <p className=" text-sm truncate">{movie.overview}</p>
                 </div>
-              </div>
+              </Link>
             ))}
-          </div>
+          </button>
         ) : (
           <div className="text-center min-h-screen flex justify-center items-center text-4xl font-semibold text-gray-500">
             No results found for &quot;{state?.query}&quot;

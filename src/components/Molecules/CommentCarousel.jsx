@@ -17,7 +17,7 @@ export const CommentCarousel = () => {
               />
               <h2>{data.name}</h2>
             </div>
-            <p>{data.time}</p>
+            <p className="text-sm">{data.time}</p>
           </div>
 
           <div className="px-4">

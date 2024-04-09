@@ -9,6 +9,7 @@ import SettingsPage from "./pages/settingpage";
 import LoginPage from "./pages/loginpage";
 import Signup from "./pages/signuppage";
 import RatingPage from "./pages/ratingpage";
+import ByYearPage from "./pages/byyearpage";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
   {
     path: "/ratingpage",
     element: <RatingPage />,
+  },
+  {
+    path: "/byyear/:year",
+    element: <ByYearPage />,
   },
 ]);
 function App() {

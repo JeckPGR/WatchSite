@@ -15,7 +15,7 @@ const SettingsPage = () => {
         </h1>
       </Link>
       <div className="flex flex-col md:flex-row">
-        <aside className="md:w-1/4 p-4 mb-4 md:mb-0" role="navigation">
+        <aside className="md:w-1/4 px-4  mb-4 md:mb-0" role="navigation">
           <ul className="bg-white shadow rounded-lg divide-y">
             <li className="p-4 hover:bg-gray-100">
               <a
@@ -58,6 +58,7 @@ const SettingsPage = () => {
               onSubmit={() =>
                 alert("Thanks for filling the form this is a demo")
               }
+              className="flex flex-col justify-center md:justify-start"
             >
               <div className="mb-6">
                 <Label text="Username" htmlfor="username" />
@@ -83,7 +84,7 @@ const SettingsPage = () => {
                 />
               </div>
               <button
-                className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg mt-4"
+                className="bg-blue-600 md:w-1/3   hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg mt-4"
                 role="button"
               >
                 Save Changes
